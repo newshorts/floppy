@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Floppy</title>
+		<style>
+			* { margin: 0; padding: 0; }
+
+			.content {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100vw;
+				height: 100vh;
+			}
+
+			.video-container {
+				position: relative;
+				width: 356px;
+				height: 200px;
+			}
+
+			video {
+				width: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 5;
+			}
+
+			.active {
+				z-index: 10;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section class="content">
+				<div class="video-container">
+					<video class="left">
+						<source src="videos/left.mp4">
+					</video>
+					<video class="right">
+						<source src="videos/right.mp4">
+					</video>
+				</div>
+			</section>
+		</main>
+		<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+		<script src="js/gesture.js"></script>
+		<script src="js/video.js"></script>
+		<script src="js/main.js"></script>
+		<script>
+			(function() {
+				window.onload = Main.initialize();
+			})();
+		</script>
+	</body>
+</html>
