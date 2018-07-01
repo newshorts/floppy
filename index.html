@@ -12,6 +12,14 @@
 				height: 100vh;
 			}
 
+			.canvas {
+				width: 100vw;
+				height: 100vh;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
 			.paw {
 				position: fixed;
 				top: 0;
@@ -28,13 +36,16 @@
 		<main>
 			<section class="content">
 				<figure class="paw"></figure>
+				<canvas class="canvas"></canvas>
 			</section>
 		</main>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
 		<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+		<script src="js/helpers/event-emitter-micro.js"></script>
 		<script src="js/helpers/math.js"></script>
+		<script src="js/helpers/vector2.js"></script>
+		<script src="js/canvas.js"></script>
 		<script src="js/cat-paw-mover.js"></script>
-		<script src="js/gesture.js"></script>
 		<script src="js/main.js"></script>
 		<script>
 			(function() {

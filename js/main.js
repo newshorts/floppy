@@ -1,8 +1,3 @@
-/**
- * @copyright 2018 Apple Inc. All rights reserved.
- * @author michael_newell@apple.com
- */
-
 'use strict';
 
 class Main {
@@ -13,10 +8,13 @@ class Main {
 
 		// set
 		this.main = document.querySelector('main');
+		this.canvas = this.main.querySelector('.canvas');
 
 		// do
-		new GestureRecognizer(this.main);
-		new CatPawMover(this.main);
+
+		let canvasController = new CanvasController(this.main, this.canvas);
+		new CatPawMover(this.main, canvasController);
+
 
 	}
 }

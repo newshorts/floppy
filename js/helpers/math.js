@@ -1,8 +1,3 @@
-/**
- * @copyright 2018 Apple Inc. All rights reserved.
- * @author michael_newell@apple.com
- */
-
 'use strict';
 
 class Math2 {
