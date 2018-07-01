@@ -7,6 +7,7 @@
 
 class CatPawMover {
 	constructor(container) {
+
 		// bind
 		this.catPawDebug = this.catPawDebug.bind(this);
 		this.catPawIn = this.catPawIn.bind(this);
@@ -24,14 +25,15 @@ class CatPawMover {
 
 		// do
 		this.initHammer();
+
 	}
 
 	initHammer() {
+
 		this.gesture = new Hammer(this.container);
 		this.gesture.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 
-
-		this.container.addEventListener('mousemove', this.catPawDebug);
+		//this.container.addEventListener('mousemove', this.catPawDebug);
 		this.gesture.on('panstart', this.catPawIn);
 		this.gesture.on('panmove', this.catPawMove);
 		this.gesture.on('panend', this.catPawOut);
@@ -42,20 +44,23 @@ class CatPawMover {
 	catPawDebug(e) {
 
 		let rotation = this.catPawAngle(this.windowWidth, this.windowHeight, e.x, e.y);
-		TweenLite.set(this.paw, {x:e.x - (0.5 * this.rect.width), y:(e.y - (this.rect.height)), rotation: rotation});
+		TweenLite.set(this.paw, {x:(e.x) - (0.5 * this.rect.width), y:((e.y) - (this.rect.height)), rotation: rotation});
 
 	}
 
-	catPawIn() {
+	catPawIn(e) {
 		// bring the cat paw to wherever the mouse click started
+		TweenLite.to(this.paw, 0.3, { opacity: 1 });
 	}
 
-	catPawOut() {
+	catPawOut(e) {
 		// move the cat paw out at the correct angle
+		TweenLite.to(this.paw, 0.2, { opacity: 0 });
 	}
 
-	catPawMove() {
-		// move the paw as the mouse moves but does not release
+	catPawMove(e) {
+		let rotation = this.catPawAngle(this.windowWidth, this.windowHeight, e.center.x, e.center.y);
+		TweenLite.set(this.paw, {x:(e.center.x) - (0.5 * this.rect.width), y:((e.center.y) - (this.rect.height)), rotation: rotation});
 	}
 
 	/**
@@ -70,6 +75,5 @@ class CatPawMover {
 		return 180 - Math2.toDegrees(angle);
 
 	}
-
 
 }
