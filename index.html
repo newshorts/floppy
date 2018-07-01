@@ -8,50 +8,32 @@
 			* { margin: 0; padding: 0; }
 
 			.content {
-				display: flex;
-				justify-content: center;
-				align-items: center;
 				width: 100vw;
 				height: 100vh;
 			}
 
-			.video-container {
-				position: relative;
-				width: 356px;
-				height: 200px;
-			}
-
-			video {
-				width: 100%;
-				position: absolute;
+			.paw {
+				position: fixed;
 				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				z-index: 5;
-			}
-
-			.active {
-				z-index: 10;
+				width: 155px;
+				height: 687px;
+				background: url(images/paw.png) scroll no-repeat;
+				background-size: contain;
+				transform-origin: 50% 100% 0;
 			}
 		</style>
 	</head>
 	<body>
 		<main>
 			<section class="content">
-				<div class="video-container">
-					<video class="left">
-						<source src="videos/left.mp4">
-					</video>
-					<video class="right">
-						<source src="videos/right.mp4">
-					</video>
-				</div>
+				<figure class="paw"></figure>
 			</section>
 		</main>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
 		<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+		<script src="js/helpers/math.js"></script>
+		<script src="js/cat-paw-mover.js"></script>
 		<script src="js/gesture.js"></script>
-		<script src="js/video.js"></script>
 		<script src="js/main.js"></script>
 		<script>
 			(function() {

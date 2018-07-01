@@ -13,20 +13,10 @@ class Main {
 
 		// set
 		this.main = document.querySelector('main');
-		this.container = this.main.querySelector('.video-container');
-		this.left = this.container.querySelector('.left');
-		this.right = this.container.querySelector('.right');
-		this.leftVideo = new Video(this.left);
-		this.rightVideo = new Video(this.right);
-
-
 
 		// do
-		let videos = {
-			left: this.leftVideo,
-			right: this.rightVideo
-		};
-		new GestureRecognizer(this.main, videos);
+		new GestureRecognizer(this.main);
+		new CatPawMover(this.main);
 
 	}
 }
