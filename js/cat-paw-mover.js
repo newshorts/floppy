@@ -8,7 +8,6 @@ class CatPawMover {
 		this.catPawIn = this.catPawIn.bind(this);
 		this.catPawOut = this.catPawOut.bind(this);
 		this.catPawMove = this.catPawMove.bind(this);
-		this.catPawAngle = this.catPawAngle.bind(this);
 
 		// set
 		this.container = container;
@@ -21,7 +20,6 @@ class CatPawMover {
 
 		// do
 		this.initHammer();
-
 		this.tracker.on("poke_update", this.catPawMove);
 
 	}
